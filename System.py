@@ -4,6 +4,8 @@ from utils.Input import In
 from utils.Color import *
 import random
 import string
+import sys
+import time
 
 
 class System:
@@ -15,21 +17,22 @@ class System:
     def main_menu(self):
         while True:
             choice = input(BLUE +
-                           "\nUniversity System: (A)dmin, (S)tudent, or X: " + RESET).lower()
+                           "\nUniversity System\n" + CYAN + "(A)dmin, (S)tudent, or E(x)it: " + RESET).lower()
 
             if choice == 's':
                 self.student_menu()
             elif choice == 'a':
                 self.admin_menu()
             elif choice == 'x':
-                print(YELLOW + "Thank you" + RESET)
-                raise KeyboardInterrupt
+                print(YELLOW + "\nExiting System\n" + RESET)
+                sys.exit()
             else:
-                print(RED + "Invalid choice." + RESET)
+                print(RED + "Invalid choice" + RESET)
 
     def student_menu(self):
         while True:
-            choice = input(BLUE + "\nStudent System (l/r/x): " + RESET).lower()
+            choice = input(
+                BLUE + "\nStudent System\n" + CYAN + "(L)ogin, (R)egister or E(x)it: " + RESET).lower()
 
             if choice == 'l':
                 self.student_login()
@@ -38,25 +41,26 @@ class System:
             elif choice == 'x':
                 self.main_menu()
             else:
-                print(
-                    "Invalid choice.")
+                print(RED + "Invalid choice" + RESET)
 
     def admin_menu(self):
-        admin_key = input(BLUE + "\nEnter the Admin Access Key: " + RESET)
+        admin_key = input(CYAN + "\nEnter the Admin Access Key: " + RESET)
 
         if admin_key == self.admin_access_key:
             print(YELLOW + "\nLogged in as Admin" + RESET)
             while True:
                 choice = input(
-                    BLUE + "\nAdmin System (c/g/p/r/s/x): " + RESET).lower()
+                    BLUE + "\nAdmin Menu [Logged in: Admin]\n" + CYAN + "(V/G/S/R/C/X/help): " + RESET).lower()
 
-                if choice == 'c':
+                if choice == 'v':
                     Admin.display_students(self.students)
                 elif choice == 'x':
                     print(YELLOW + "\nLogged out of Admin" + RESET)
                     self.main_menu()
+                elif choice == 'help':
+                    print("\nCommand Details\n===============\nV: View All Students\nG: View Students By Grade\nS: View Students By PASS/FAIL Status\nR: Remove Student\nC: Clear Student Data\nX: Logout of Admin System\n\nNote: Commands are not case-sensitive")
                 else:
-                    print("Invalid choice.")
+                    print(RED + "Invalid choice" + RESET)
         else:
             print(RED + "Access Denied. Invalid Access Key." + RESET)
 
@@ -74,8 +78,14 @@ class System:
         self.students[student_id] = Student(
             student_id, first_name, last_name, email, password)
 
+        time.sleep(1)
+
         print(
-            YELLOW + f"\nEnrolling {first_name} {last_name} with ID: {student_id}" + RESET)
+            YELLOW + f"\nEnrolling {first_name} {last_name} with ID: {student_id}" + RESET, end=" ")
+
+        time.sleep(2)
+        print(GREEN + "[SUCCESS]" + RESET)
+        time.sleep(1)
 
     def generate_student_id(self):
 
@@ -92,9 +102,12 @@ class System:
         self.active_student = self.find_student_by_email_password(
             email, password)
 
+        time.sleep(1)
+
         if self.active_student:
             print(
                 YELLOW + f"\nLogged in as {self.active_student.first_name} {self.active_student.last_name}" + RESET)
+            time.sleep(2)
             self.student_option()
         else:
             print(RED + "Login failed. Email or password is incorrect." + RESET)
@@ -102,7 +115,7 @@ class System:
     def student_option(self):
         while True:
             choice = input(
-                BLUE + "\nStudent Course Menu (c/e/r/s/x): " + RESET).lower()
+                BLUE + f"\nStudent Menu [Logged in: {self.active_student.first_name} {self.active_student.last_name}]\n" + CYAN + "(E/V/R/C/X/help): " + RESET).lower()
 
             if choice == 'c':
                 self.print_student_details()

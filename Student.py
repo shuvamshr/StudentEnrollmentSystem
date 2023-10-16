@@ -16,4 +16,4 @@ class Student:
 
     def display_student_info(self):
         print(
-            f"{self.first_name} {self.last_name} :: {self.student_id}  > {self.email}")
+            f"[{self.student_id}] {self.first_name} {self.last_name} :: {self.email}")
