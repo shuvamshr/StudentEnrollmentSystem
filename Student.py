@@ -17,8 +17,3 @@ class Student:
     def display_student_info(self):
         print(
             f"{self.first_name} {self.last_name} :: {self.student_id}  > {self.email}")
-        # print(f"Name: {self.first_name} {self.last_name}")
-        # print(f"Email: {self.email}")
-        # print("Subjects Enrolled:")
-        # for subject in self.subjects:
-        #     print(subject)

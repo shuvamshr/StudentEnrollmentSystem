@@ -8,5 +8,5 @@ class Admin:
             print(RED + "No students registered" + RESET)
         else:
             print(YELLOW + "\nStudent List" + RESET)
-            for student in students:
+            for student_id, student in students.items():
                 student.display_student_info()
