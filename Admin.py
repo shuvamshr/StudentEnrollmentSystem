@@ -6,6 +6,7 @@ class Admin:
     def display_students(students):
         if not students:
             print(MAGENTA + "No students registered" + RESET)
+
         else:
             print(YELLOW + "\nStudent List" + RESET)
             for student_id, student in students.items():

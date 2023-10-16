@@ -18,7 +18,7 @@ class In:
             email = input(prompt)
             if validation_func(email):
                 print(
-                    YELLOW + "Valid Email" + RESET)
+                    GREEN + "Valid Email" + RESET)
                 return email
             print(
                 RED + "Invalid email format. Requirement:: Correct format firstName.lastName@university.com" + RESET)
@@ -29,7 +29,7 @@ class In:
             password = getpass.getpass(prompt)
             if validation_func(password):
                 print(
-                    YELLOW + "Valid Password" + RESET)
+                    GREEN + "Valid Password" + RESET)
                 return password
             print(RED + "Invalid password. Requirement:: Starts with Upper-case, Minimum 4 Letters, Ends with 3+ Digits" + RESET)
 
