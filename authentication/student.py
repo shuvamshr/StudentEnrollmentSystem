@@ -38,7 +38,8 @@ class StudentAuthentication:
             'first_name': first_name,
             'last_name': last_name,
             'email': email,
-            'password': password
+            'password': password,
+            'subject': {}
         }
         self.students.append(student)
         self.save_students()
