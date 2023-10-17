@@ -1,7 +1,7 @@
-from utilities.input_validation import validate_password
-from utilities.color import *
 import json
 import time
+from utilities.input_validation import validate_password
+from utilities.color import *
 
 
 class StudentMenu:

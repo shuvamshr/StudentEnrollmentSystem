@@ -1,5 +1,3 @@
-import os
-import json
 import time
 from authentication.student import StudentAuthentication
 from authentication.admin import AdminAuthentication

@@ -1,6 +1,6 @@
+import time
 from menu.admin_menu import AdminMenu
 from utilities.color import *
-import time
 
 
 class AdminAuthentication:

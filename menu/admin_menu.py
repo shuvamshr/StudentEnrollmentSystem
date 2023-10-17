@@ -1,5 +1,5 @@
-from utilities.color import *
 import time
+from utilities.color import *
 
 
 class AdminMenu:

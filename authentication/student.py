@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import random
 from utilities.input_validation import validate_email, validate_password, validate_name
 from menu.student_menu import StudentMenu
 from utilities.color import *
@@ -68,5 +69,5 @@ class StudentAuthentication:
         print(RED + "Incorrect Email or Password. Please Try Again." + RESET)
 
     def generate_student_id(self):
-        import random
+
         return str(random.randint(100000, 999999))
