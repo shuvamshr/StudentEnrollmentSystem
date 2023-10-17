@@ -12,5 +12,12 @@
         "last_name": "Lin",
         "email": "cindy@university.com",
         "password": "Password123"
+    },
+    {
+        "id": "747537",
+        "first_name": "Shuvam",
+        "last_name": "Shrestha",
+        "email": "shuvam@uni.com",
+        "password": "Tomato312"
     }
 ]

@@ -51,6 +51,8 @@ class StudentMenu:
         print("Remove Subject Logic Here")
 
     def change_password(self):
+        print(BOLD + UNDERLINE + "\nChange Password" + RESET)
+        print()
         new_password = validate_password("Enter New Password: ")
 
         # Update the password in the students_data list
