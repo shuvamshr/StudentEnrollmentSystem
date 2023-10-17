@@ -69,5 +69,5 @@ class StudentAuthentication:
         print(RED + "Incorrect Email or Password. Please Try Again." + RESET)
 
     def generate_student_id(self):
-
+        # Update so that it starts from 0
         return str(random.randint(100000, 999999))

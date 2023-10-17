@@ -29,9 +29,7 @@ class AdminMenu:
                 self.clear_data()
 
             elif choice == 'x':
-                time.sleep(1)
-                print(YELLOW + "\n<-- Logged out of Admin -->" + RESET)
-                time.sleep(1)
+                self.logout()
                 return
 
             elif choice == 'help':
@@ -66,3 +64,10 @@ class AdminMenu:
         print("X: Logout of Admin System")
         print()
         print("Note: Commands are not case-sensitive")
+
+    def logout(self):
+        print(YELLOW +
+              f"\nLogging Out" + RESET, end=" ")
+        time.sleep(2)
+        print(BOLD + GREEN + "[LOGGED OUT]" + RESET)
+        time.sleep(1)

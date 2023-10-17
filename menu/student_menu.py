@@ -32,10 +32,7 @@ class StudentMenu:
                 self.help()
 
             elif choice == 'x':
-                time.sleep(1)
-                print(
-                    YELLOW + f"\n<-- Logged out of {self.student['first_name']} {self.student['last_name']} -->" + RESET)
-                time.sleep(1)
+                self.logout()
                 return
 
             else:
@@ -80,3 +77,10 @@ class StudentMenu:
         print("X: Logout of Student System")
         print()
         print("Note: Commands are not case-sensitive")
+
+    def logout(self):
+        print(YELLOW +
+              f"\nLogging Out" + RESET, end=" ")
+        time.sleep(2)
+        print(BOLD + GREEN + "[LOGGED OUT]" + RESET)
+        time.sleep(1)
