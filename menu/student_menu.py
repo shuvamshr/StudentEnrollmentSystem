@@ -1,6 +1,9 @@
 import json
 import time
+import random
+import string
 from utilities.input_validation import validate_password
+from utilities.mark_check import grade_check, status_check
 from utilities.color import *
 
 
@@ -34,10 +37,31 @@ class StudentMenu:
                     print(RED + "Invalid choice" + RESET)
 
     def enroll_subject(self):
-        print("Enroll Subject Logic Here")
+        time.sleep(1)
+        print(YELLOW +
+              f"\nEnrolling into Subject" + RESET, end=" ")
+        time.sleep(2)
+        print(BOLD + GREEN + "[SUCCESS]" + RESET)
+        time.sleep(1)
+
+        subject_code = ''.join(random.choice(string.digits) for _ in range(3))
+
+        mark = random.randint(40, 100)
+
+        self.student['subject'][subject_code] = mark
+
+        for student_data in self.students_data:
+            if student_data['id'] == self.student['id']:
+                student_data['subject'] = self.student['subject']
+
+        with open('student.data', 'w') as file:
+            json.dump(self.students_data, file, indent=4)
+
+        print(
+            BOLD + f"\nSubject Code: {subject_code} || Mark: {mark} || Grade: {grade_check(mark)} || Status: {status_check(mark)}" + RESET)
 
     def view_enrollment(self):
-        print("View Enrollment Subject Logic Here")
+        print("View Enrollment Logic Here")
 
     def remove_subject(self):
         print("Remove Subject Logic Here")
@@ -47,12 +71,10 @@ class StudentMenu:
         print()
         new_password = validate_password("Enter New Password: ")
 
-        # Update the password in the students_data list
         for student_data in self.students_data:
             if student_data['id'] == self.student['id']:
                 student_data['password'] = new_password
 
-        # Save the updated data to the student.data file
         with open('student.data', 'w') as file:
             json.dump(self.students_data, file, indent=4)
 

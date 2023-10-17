@@ -1,30 +1,17 @@
 [
     {
-        "id": "191816",
+        "id": "930789",
         "first_name": "Shuvam",
         "last_name": "Shrestha",
         "email": "shuvam@university.com",
-        "password": "Blazingsaddles"
-    },
-    {
-        "id": "951104",
-        "first_name": "Cindy",
-        "last_name": "Lin",
-        "email": "cindy@university.com",
-        "password": "Password123"
-    },
-    {
-        "id": "747537",
-        "first_name": "Shuvam",
-        "last_name": "Shrestha",
-        "email": "shuvam@uni.com",
-        "password": "Tomato312"
-    },
-    {
-        "id": "314678",
-        "first_name": "Jiwon",
-        "last_name": "Ha",
-        "email": "jiwon@university.com",
-        "password": "Tomato312"
+        "password": "Password123",
+        "subject": {
+            "448": 96,
+            "427": 53,
+            "491": 49,
+            "836": 58,
+            "303": 64,
+            "932": 98
+        }
     }
 ]
