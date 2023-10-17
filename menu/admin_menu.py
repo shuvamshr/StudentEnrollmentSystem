@@ -9,34 +9,28 @@ class AdminMenu:
     def display_menu(self):
         print(BLUE + BOLD + UNDERLINE + "\nAdmin System" + RESET + BLUE + BOLD +
               " [Logged in: Admin]" + RESET)
-        while True:
 
+        while True:
             choice = input(CYAN + "\n(V/G/S/R/C/X/help): " + RESET).lower()
 
-            if choice == 'v':
-                self.view_students()
-
-            elif choice == 'g':
-                self.view_students_grade()
-
-            elif choice == 's':
-                self.view_students_status()
-
-            elif choice == 'r':
-                self.remove_student()
-
-            elif choice == 'c':
-                self.clear_data()
-
-            elif choice == 'x':
-                self.logout()
-                return
-
-            elif choice == 'help':
-                self.help()
-
-            else:
-                print(RED + "Invalid choice" + RESET)
+            match choice:
+                case 'v':
+                    self.view_students()
+                case 'g':
+                    self.view_students_grade()
+                case 's':
+                    self.view_students_status()
+                case 'r':
+                    self.remove_student()
+                case 'c':
+                    self.clear_data()
+                case 'x':
+                    self.logout()
+                    return
+                case 'help':
+                    self.help()
+                case _:
+                    print(RED + "Invalid choice" + RESET)
 
     def view_students(self):
         print("View Students Logic Here")

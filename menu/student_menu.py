@@ -12,31 +12,26 @@ class StudentMenu:
     def display_menu(self):
         print(BLUE + BOLD + UNDERLINE + "\nStudent System" + RESET + BLUE + BOLD +
               f" [Logged in: {self.student['first_name']} {self.student['last_name']}]" + RESET)
-        while True:
 
+        while True:
             choice = input(CYAN + "\n(E/V/R/C/X/help): " + RESET).lower()
 
-            if choice == 'e':
-                self.enroll_subject()
-
-            elif choice == 'v':
-                self.view_enrollment()
-
-            elif choice == 'r':
-                self.remove_subject()
-
-            elif choice == 'c':
-                self.change_password()
-
-            elif choice == 'help':
-                self.help()
-
-            elif choice == 'x':
-                self.logout()
-                return
-
-            else:
-                print(RED + "Invalid choice" + RESET)
+            match choice:
+                case 'e':
+                    self.enroll_subject()
+                case 'v':
+                    self.view_enrollment()
+                case 'r':
+                    self.remove_subject()
+                case 'c':
+                    self.change_password()
+                case 'help':
+                    self.help()
+                case 'x':
+                    self.logout()
+                    return
+                case _:
+                    print(RED + "Invalid choice" + RESET)
 
     def enroll_subject(self):
         print("Enroll Subject Logic Here")
