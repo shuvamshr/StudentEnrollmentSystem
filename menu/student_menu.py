@@ -51,21 +51,22 @@ class StudentMenu:
         print("Remove Subject Logic Here")
 
     def change_password(self):
-        new_password = input("Enter your new password: ")
+        new_password = validate_password("Enter New Password: ")
 
-        if validate_password(new_password):
-            # Update the password in the students_data list
-            for student_data in self.students_data:
-                if student_data['id'] == self.student['id']:
-                    student_data['password'] = new_password
+        # Update the password in the students_data list
+        for student_data in self.students_data:
+            if student_data['id'] == self.student['id']:
+                student_data['password'] = new_password
 
-            # Save the updated data to the student.data file
-            with open('student.data', 'w') as file:
-                json.dump(self.students_data, file, indent=4)
+        # Save the updated data to the student.data file
+        with open('student.data', 'w') as file:
+            json.dump(self.students_data, file, indent=4)
 
-            print("Password updated successfully.")
-        else:
-            print("Invalid password format.")
+        print(YELLOW +
+              f"\nUpdating password" + RESET, end=" ")
+        time.sleep(2)
+        print(BOLD + GREEN + "[SUCCESS]" + RESET)
+        time.sleep(1)
 
     def help(self):
         print(BOLD + UNDERLINE + "\nCommand Details" + RESET)

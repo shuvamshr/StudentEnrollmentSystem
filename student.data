@@ -4,6 +4,13 @@
         "first_name": "Shuvam",
         "last_name": "Shrestha",
         "email": "shuvam@university.com",
+        "password": "Tomatosalad"
+    },
+    {
+        "id": "951104",
+        "first_name": "Cindy",
+        "last_name": "Lin",
+        "email": "cindy@university.com",
         "password": "Password123"
     }
 ]
