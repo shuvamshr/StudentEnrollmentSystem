@@ -19,22 +19,21 @@ class StudentMenu:
         while True:
             choice = input(CYAN + "\n(E/V/R/C/X/help): " + RESET).lower()
 
-            match choice:
-                case 'e':
-                    self.enroll_subject()
-                case 'v':
-                    self.view_enrollment()
-                case 'r':
-                    self.remove_subject()
-                case 'c':
-                    self.change_password()
-                case 'help':
-                    self.help()
-                case 'x':
-                    self.logout()
-                    return
-                case _:
-                    print(RED + "Invalid choice" + RESET)
+            if choice == 'e':
+                self.enroll_subject()
+            elif choice == 'v':
+                self.view_enrollment()
+            elif choice == 'r':
+                self.remove_subject()
+            elif choice == 'c':
+                self.change_password()
+            elif choice == 'x':
+                self.logout()
+                return
+            elif choice == 'help':
+                self.help()
+            else:
+                print(RED + "Invalid choice" + RESET)
 
     def enroll_subject(self):
         time.sleep(1)
