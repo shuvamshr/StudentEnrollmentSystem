@@ -23,21 +23,5 @@
         "subject": {
             "879": 62
         }
-    },
-    {
-        "id": "907573",
-        "first_name": "Cindy",
-        "last_name": "Lin",
-        "email": "cindy.lin@university.com",
-        "password": "Potato123",
-        "subject": {}
-    },
-    {
-        "id": "117166",
-        "first_name": "Man",
-        "last_name": "HUman",
-        "email": "man@university.com",
-        "password": "Passwod123",
-        "subject": {}
     }
 ]
