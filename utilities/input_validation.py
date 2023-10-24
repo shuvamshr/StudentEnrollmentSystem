@@ -20,6 +20,7 @@ def validate_email(input_string, first_name, last_name):
             print("Error: It's not a valid email.")
         # check if email is valid against first_name and last_name, if true 'return email', else 'print('error')'
 
+
 def validate_password(input_string):
     while True:
         password = input(input_string)
@@ -28,5 +29,4 @@ def validate_password(input_string):
         else:
             print("Error: It's not a valid password. Password must start with an uppercase letter, have at least 6 letters, and be followed by at least 3 digits.")
 
-        
         # check if password is valid, if true 'return email', else 'print('error')'

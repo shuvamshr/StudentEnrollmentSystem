@@ -31,6 +31,8 @@ class AdminMenu:
             else:
                 print(RED + "Invalid choice" + RESET)
 
+    # Gigi to do everything below
+
     def view_students(self):
         print("View Students Logic Here")
 
@@ -44,6 +46,7 @@ class AdminMenu:
         print("Remove Student Logic Here")
 
     def clear_data(self):
+
         print("Clear Data Logic Here")
 
     def help(self):

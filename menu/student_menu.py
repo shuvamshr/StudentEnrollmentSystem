@@ -36,6 +36,11 @@ class StudentMenu:
                 print(RED + "Invalid choice" + RESET)
 
     def enroll_subject(self):
+        # Start Coding Below - Shamim
+        # Write code to check if less than 4 subjects
+
+        # Run below code if less than 4 subjects
+
         time.sleep(1)
         print(YELLOW +
               f"\nEnrolling into Subject" + RESET, end=" ")
@@ -61,9 +66,11 @@ class StudentMenu:
 
     def view_enrollment(self):
         print("View Enrollment Logic Here")
+        # Start Coding Below - Shamim
 
     def remove_subject(self):
         print("Remove Subject Logic Here")
+        # Start Coding Below - Shamim
 
     def change_password(self):
         print(BOLD + UNDERLINE + "\nChange Password" + RESET)
