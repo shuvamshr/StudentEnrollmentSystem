@@ -159,7 +159,29 @@ class AdminMenu:
             print(RED + "\nThe 'student.data' file does not exist." + RESET)
 
     def clear_data(self):
-        print("Clear Data Logic Here")
+        print(BOLD + GREEN + UNDERLINE + "\nClearing Students Database" + RESET)
+        print()
+        try:
+            user_input = input(
+                BOLD + RED + "Are you sure you want to clear the database? ( Y / N ): " + RESET).strip().lower()
+
+            if user_input == 'y':
+
+                if os.path.exists('student.data'):
+                    os.remove('student.data')
+
+                with open('student.data', 'w') as file:
+                    file.write("[]")
+
+                print(BOLD + YELLOW +
+                      "\nStudent data cleared and a new file created." + RESET)
+            elif user_input == 'n':
+                print(BOLD + YELLOW + "\nFile not cleared." + RESET)
+            else:
+                print(
+                    MAGENTA + "\nInvalid input. Please enter 'Y' to clear or 'N' to keep the file." + RESET)
+        except Exception as e:
+            print(RED + f"\nAn error occurred: {e}" + RESET)
 
     def help(self):
         print(BOLD + UNDERLINE + "\nCommand Details" + RESET)
