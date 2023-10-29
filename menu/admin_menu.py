@@ -35,7 +35,7 @@ class AdminMenu:
                 print(RED + "Invalid choice" + RESET)
 
     def view_students(self):
-        print(BOLD + GREEN + UNDERLINE + "\nStudent List" + RESET)
+        print(BOLD + UNDERLINE + "\nStudent List" + RESET)
         print()
         try:
             with open('student.data', 'r') as file:
@@ -53,14 +53,14 @@ class AdminMenu:
             print(RED + "\nThe 'student.data' file does not exist.")
 
     def view_students_grade(self):
-        print(BOLD + GREEN + UNDERLINE + "\nView Students By Grade" + RESET)
+        print(BOLD + UNDERLINE + "\nView Students By Grade" + RESET)
         print()
         try:
             with open('student.data', 'r') as file:
                 students_data = json.load(file)
 
                 if not students_data:
-                    print(MAGENTA + "\nNo student data found.")
+                    print(MAGENTA + "No student data found.")
                 else:
                     grade_to_view = input(
                         CYAN + "Enter the grade to view (HD/D/C/P/F): ").upper()
@@ -70,8 +70,8 @@ class AdminMenu:
                               "\nInvalid grade. Please enter HD, D, C, P, or F.")
                     else:
                         found_students = False
-                        print(BOLD + GREEN +
-                              f"\nStudents with Grade {grade_to_view}:" + RESET)
+                        print(BOLD + UNDERLINE +
+                              f"\nStudents with Grade {grade_to_view}:\n" + RESET)
                         for student in students_data:
                             grades = student.get("subject", {})
 
@@ -91,7 +91,7 @@ class AdminMenu:
             print(RED + "\nThe 'student.data' file does not exist.")
 
     def view_students_status(self):
-        print(BOLD + GREEN + UNDERLINE +
+        print(BOLD + UNDERLINE +
               "\nView Students By PASS/FAIL Status" + RESET)
         print()
         try:
@@ -113,28 +113,28 @@ class AdminMenu:
                                 student_status = status_check(value)
 
                                 if student_status == "PASS":
-                                    formatted_string = f"{student['first_name']} {student['last_name']} :: {student['id']} --> GRADE: {student_status} - Mark : {value}"
+                                    formatted_string = f"{student['first_name']} {student['last_name']} :: {student['id']} --> GRADE: {student_status} - Mark : {value}\n"
                                     pass_students.append(formatted_string)
                                 else:
-                                    formatted_string = f"{student['first_name']} {student['last_name']} :: {student['id']} --> GRADE: {student_status} - Mark : {value}"
+                                    formatted_string = f"{student['first_name']} {student['last_name']} :: {student['id']} --> GRADE: {student_status} - Mark : {value}\n"
                                     fail_students.append(formatted_string)
 
                     if pass_students:
-                        pass_students_string = ', '.join(pass_students)
-                        print(BOLD + BLUE + "PASS --> " + RESET +
-                              "[" + f"{pass_students_string}" + "]")
+                        pass_students_string = ''.join(pass_students)
+                        print(BOLD + BLUE + UNDERLINE + "PASS\n" + RESET +
+                              f"{pass_students_string}")
                         print()
 
                     if fail_students:
-                        fail_students_string = ', '.join(fail_students)
-                        print(BOLD + MAGENTA + "FAIL --> " + RESET +
-                              "[" + f"{fail_students_string}" + "]")
+                        fail_students_string = ''.join(fail_students)
+                        print(BOLD + MAGENTA + UNDERLINE + "FAIL\n" + RESET +
+                              + f"{fail_students_string}")
 
         except FileNotFoundError:
-            print(RED + "\nThe 'student.data' file does not exist.")
+            print(RED + "No students found.")
 
     def remove_student(self):
-        print(BOLD + GREEN + UNDERLINE + "\nRemove Student By ID" + RESET)
+        print(BOLD + UNDERLINE + "\nRemove Student By ID" + RESET)
         print()
         try:
             with open('student.data', 'r') as file:
@@ -150,7 +150,7 @@ class AdminMenu:
                     json.dump(updated_students_data, file, indent=4)
 
                 print("\nStudent with ID" + BOLD + YELLOW +
-                      f"{student_id_to_remove}" + RESET + "removed successfully.")
+                      f" {student_id_to_remove} " + RESET + "removed successfully.")
             else:
                 print(MAGENTA + "\nNo student found with ID" + BOLD +
                       YELLOW + f" {student_id_to_remove} " + RESET)

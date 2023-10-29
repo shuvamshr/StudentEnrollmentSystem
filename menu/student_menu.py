@@ -36,41 +36,68 @@ class StudentMenu:
                 print(RED + "Invalid choice" + RESET)
 
     def enroll_subject(self):
-        # Start Coding Below - Shamim
-        # Write code to check if less than 4 subjects
+        if len(self.student['subject']) >= 4:
+            print(RED + "\nYou have already enrolled in four subjects for this semester. You will need to remove a subject to be able to enroll." + RESET)
+        else:
+            time.sleep(1)
+            print(YELLOW + f"\nEnrolling into Subject" + RESET, end=" ")
+            time.sleep(2)
+            print(BOLD + GREEN + "[SUCCESS]" + RESET)
+            time.sleep(1)
 
-        # Run below code if less than 4 subjects
+            subject_code = ''.join(random.choice(string.digits)
+                                   for _ in range(3))
 
-        time.sleep(1)
-        print(YELLOW +
-              f"\nEnrolling into Subject" + RESET, end=" ")
-        time.sleep(2)
-        print(BOLD + GREEN + "[SUCCESS]" + RESET)
-        time.sleep(1)
+            mark = random.randint(40, 100)
 
-        subject_code = ''.join(random.choice(string.digits) for _ in range(3))
+            self.student['subject'][subject_code] = mark
 
-        mark = random.randint(40, 100)
+            for student_data in self.students_data:
+                if student_data['id'] == self.student['id']:
+                    student_data['subject'] = self.student['subject']
 
-        self.student['subject'][subject_code] = mark
+            with open('student.data', 'w') as file:
+                json.dump(self.students_data, file, indent=4)
 
-        for student_data in self.students_data:
-            if student_data['id'] == self.student['id']:
-                student_data['subject'] = self.student['subject']
-
-        with open('student.data', 'w') as file:
-            json.dump(self.students_data, file, indent=4)
-
-        print(
-            BOLD + f"\nSubject Code: {subject_code} || Mark: {mark} || Grade: {grade_check(mark)} || Status: {status_check(mark)}" + RESET)
+            print(
+                BOLD + f"\nSubject Code: {subject_code} || Mark: {mark} || Grade: {grade_check(mark)} || Status: {status_check(mark)}" + RESET)
 
     def view_enrollment(self):
-        print("View Enrollment Logic Here")
-        # Start Coding Below - Shamim
+        print(BOLD + UNDERLINE + "\nCurrent Enrollments\n" + RESET)
+        if len(self.student['subject']) == 0:
+            print("You are not currently enrolled in any subjects.")
+        else:
+            print("Subject Code   |   Mark   |   Grade   |   Status")
+            print("-" * 50)
+            for subject_code, mark in self.student['subject'].items():
+                grade = grade_check(mark)
+                status = status_check(mark)
+                print(
+                    f"{subject_code}            |   {mark}     |    {grade}      |   {status}")
 
     def remove_subject(self):
-        print("Remove Subject Logic Here")
-        # Start Coding Below - Shamim
+        print(BOLD + UNDERLINE + "\nRemove Subject\n" + RESET)
+        if len(self.student['subject']) == 0:
+            print("You are not currently enrolled in any subjects.")
+        else:
+            subject_code = input("Enter the subject code to remove: ")
+            if subject_code in self.student['subject']:
+                del self.student['subject'][subject_code]
+
+                for student_data in self.students_data:
+                    if student_data['id'] == self.student['id']:
+                        student_data['subject'] = self.student['subject']
+
+                with open('student.data', 'w') as file:
+                    json.dump(self.students_data, file, indent=4)
+
+                print(YELLOW +
+                      f"\nRemoving Subject" + RESET, end=" ")
+                time.sleep(2)
+                print(BOLD + GREEN + "[REMOVED]" + RESET)
+                time.sleep(1)
+            else:
+                print(RED + "Subject code not found in your enrollments." + RESET)
 
     def change_password(self):
         print(BOLD + UNDERLINE + "\nChange Password" + RESET)

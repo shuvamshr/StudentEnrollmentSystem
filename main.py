@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import tkinter as tk  # Import the tkinter module
 from authentication.student import StudentAuthentication
 from authentication.admin import AdminAuthentication
 from utilities.color import *
@@ -11,7 +12,7 @@ class System:
         while True:
             print(BLUE + BOLD + UNDERLINE + "\nUniversity System" + RESET)
             choice = input(
-                CYAN + "\n(S)tudent, (A)dmin, or E(x)it: " + RESET).lower()
+                CYAN + "\n(S)tudent, (A)dmin, Switch to (G)UI System or E(x)it: " + RESET).lower()
 
             if choice == 's':
                 self.student_system()
@@ -22,6 +23,11 @@ class System:
                 print(YELLOW + "\nExiting System\n" + RESET)
                 time.sleep(1)
                 exit()
+            elif choice == 'g':
+                from gui.gui_system import GUISystem
+                root = tk.Tk()
+                app = GUISystem(root)
+                root.mainloop()
             else:
                 print(RED + "Invalid choice" + RESET)
 

@@ -5,7 +5,7 @@ from utilities.color import *
 
 class AdminAuthentication:
     def __init__(self):
-        self.special_key = "enr0llm3nt"
+        self.special_key = "admin3164"
 
     def enter_special_key(self):
 
@@ -21,4 +21,4 @@ class AdminAuthentication:
             admin_menu.display_menu()
         else:
             time.sleep(1)
-            print(RED + "Access Denied. Invalid Access Key." + RESET)
+            print(RED + "\nAccess Denied. Invalid Access Key." + RESET)
