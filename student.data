@@ -1,18 +1,5 @@
 [
     {
-        "id": "724031",
-        "first_name": "Jiwon",
-        "last_name": "Ha",
-        "email": "jiwon.ha@university.com",
-        "password": "Potato1234",
-        "subject": {
-            "243": 93,
-            "605": 72,
-            "477": 3,
-            "549": 83
-        }
-    },
-    {
         "id": "741394",
         "first_name": "Shuvam",
         "last_name": "Shrestha",
@@ -23,6 +10,19 @@
             "811": 54,
             "778": 45,
             "308": 28
+        }
+    },
+    {
+        "id": "820454",
+        "first_name": "Oliver",
+        "last_name": "Sinclair",
+        "email": "oliver.sinclair@university.com",
+        "password": "Nanophone1234",
+        "subject": {
+            "100": 77,
+            "649": 99,
+            "482": 65,
+            "641": 25
         }
     }
 ]

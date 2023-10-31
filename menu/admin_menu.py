@@ -127,7 +127,7 @@ class AdminMenu:
 
                     if fail_students:
                         fail_students_string = ''.join(fail_students)
-                        print(BOLD + MAGENTA + UNDERLINE + "FAIL\n" + RESET +
+                        print(BOLD + MAGENTA + UNDERLINE + "FAIL\n" + RESET
                               + f"{fail_students_string}")
 
         except FileNotFoundError:
